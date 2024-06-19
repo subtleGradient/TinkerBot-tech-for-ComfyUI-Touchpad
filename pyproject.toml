@@ -1,0 +1,14 @@
+[project]
+name = "tinkerbot-tech-for-comfyui-touchpad"
+description = "Two-finger scrolling (vertical and horizontal) to pan the canvas. Two-finger pinch to zoom in and out. Command-scroll up and down to zoom in and out. Fixes [a/comfyanonymous/ComfyUI#2059](https://github.com/comfyanonymous/ComfyUI/issues/2059)."
+version = "1.0.0"
+license = "LICENSE"
+
+[project.urls]
+Repository = "https://github.com/subtleGradient/TinkerBot-tech-for-ComfyUI-Touchpad"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "TinkerBot-tech-for-ComfyUI-Touchpad"
+Icon = ""
