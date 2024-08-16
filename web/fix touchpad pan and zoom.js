@@ -1,21 +1,19 @@
-// @ts-check
-/** @type {any} */
-const { self } = window
+import { app } from "../../../scripts/app.js";
 
-/** @type {import("../../../web/types/litegraph")} */
-const { LGraphCanvas } = self
 
-// @ts-ignore
-import * as ComfyUI_module from "../../../scripts/app.js"
-/** @type { import("../../../web/scripts/app.js") } */
-const { app } = ComfyUI_module
-
-//////////////////////////////
+app.registerExtension({
+  name: "ComfyUI-Mac-Trackpad",
+  async setup(app2) {
+    app2.canvas.ds.element.removeEventListener("mousewheel", app2.canvas.ds._binded_mouse_callback);
+    app2.canvas.ds.element.removeEventListener("wheel", app2.canvas.ds._binded_mouse_callback);
+    app2.canvas.ds.element.addEventListener("wheel", processWheel.bind(app2.canvas), false);
+  }
+});
 
 /**
  * Smooth scrolling for touchpad
  */
-LGraphCanvas.prototype.processMouseWheel = function (/** @type {WheelEvent}*/ event) {
+function processWheel(/** @type {WheelEvent}*/ event) {
   if (!this.graph || !this.allow_dragcanvas) return
 
   const { clientX: x, clientY: y } = event
